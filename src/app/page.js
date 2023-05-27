@@ -5,6 +5,7 @@ import FoodList from "@/components/FoodList";
 import ControlledInputs from "@/hooks/ControlledInputs";
 import MultipleInputs from "@/hooks/MultipleInputs";
 import MultipleReturn from "@/hooks/MultipleReturn";
+import PropDrill from "@/hooks/PropDrill";
 import ShortCircuit from "@/hooks/ShortCircuit";
 import ShowHide from "@/hooks/ShowHide";
 import UserEffectBasic from "@/hooks/UseEffectBasic";
@@ -17,7 +18,7 @@ import { Fragment } from "react";
 const HomePage = () => {
   return (
     <>
-      <UseReducer/>
+      <PropDrill/>
     </>
   );
 };

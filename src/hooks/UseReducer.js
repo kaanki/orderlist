@@ -1,5 +1,6 @@
 import { useReducer, useState } from "react";
 import Modal from "./Modal";
+import {reducer} from "./reducer"
 
 const data = [
   { id: 1, name: "Murat" },
@@ -9,25 +10,6 @@ const data = [
   { id: 5, name: "Eda" },
 ];
 
-const reducer = (state, action) => {
-  if (action.type === "oge_ekle") {
-    const newItem = [...state.people, action.payload];
-    return {
-      ...state,
-      people: newItem,
-      isModalOpen: true,
-      modalContent: "öğe eklendi " + action.payload.name,
-    };
-  }
-  if (action.type === "deger_yok") {
-    return {
-      ...state,
-      isModalOpen: true,
-      modalContent: "Lütfen bir değer giriniz",
-    };
-  }
-  throw new Error("Eşleşen eylem yok");
-};
 
 const defaultState = {
   people: [],
@@ -52,9 +34,15 @@ const UseReducer = () => {
     }
   };
 
+  const closeModal = () => {
+    dispatch({ type: "MODAL_KAPAT" });
+  };
+
   return (
     <>
-      {state.isModalOpen && <Modal modalContent={state.modalContent} />}
+      {state.isModalOpen && (
+        <Modal modalContent={state.modalContent} closeModal={closeModal} />
+      )}
       <form onSubmit={handleSubmit}>
         <div>
           <input
@@ -70,6 +58,13 @@ const UseReducer = () => {
         return (
           <div key={person.id}>
             <h4>{person.name}</h4>
+            <button
+              onClick={() =>
+                dispatch({ type: "OGEYI_KALDIR", payload: person.id })
+              }
+            >
+              Kaldır
+            </button>
           </div>
         );
       })}
