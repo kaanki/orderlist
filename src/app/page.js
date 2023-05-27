@@ -18,7 +18,7 @@ import { Fragment } from "react";
 const HomePage = () => {
   return (
     <>
-      <PropDrill/>
+      <App/>
     </>
   );
 };
