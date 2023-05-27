@@ -2,7 +2,9 @@
 import App from "@/components/App";
 import FoodCreate from "@/components/FoodCreate";
 import FoodList from "@/components/FoodList";
+import ContextApi from "@/hooks/ContextApi";
 import ControlledInputs from "@/hooks/ControlledInputs";
+import CustomHooks from "@/hooks/CustomHooks";
 import MultipleInputs from "@/hooks/MultipleInputs";
 import MultipleReturn from "@/hooks/MultipleReturn";
 import PropDrill from "@/hooks/PropDrill";
@@ -18,7 +20,7 @@ import { Fragment } from "react";
 const HomePage = () => {
   return (
     <>
-      <App/>
+      <CustomHooks/>
     </>
   );
 };
