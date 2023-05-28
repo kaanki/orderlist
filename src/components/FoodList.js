@@ -1,8 +1,14 @@
+import { useContext } from "react";
+
+import FoodContext from "@/context/foods";
 import FoodShow from "./FoodShow";
 
-const FoodList = ({ foods, onDelete, onEdit }) => {
+const FoodList = () => {
+  const { foods } = useContext(FoodContext);
   const renderedFoods = foods.map((food) => {
-    return <FoodShow key={food.id} food={food} onDelete={onDelete} onEdit = {onEdit}/>;
+    return (
+      <FoodShow key={food.id} food={food}/>
+    );
   });
   return <div className="food-list">{renderedFoods}</div>;
 };
