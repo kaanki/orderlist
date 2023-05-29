@@ -1,38 +1,20 @@
-import { useState } from "react";
+import { useEffect, useContext } from "react";
 import FoodCreate from "./FoodCreate";
 import FoodList from "./FoodList";
+import FoodContext from "@/context/foods";
 
 const App = () => {
-  const [foods, setFoods] = useState([]);
-  const editFoodById = (id,newTitle) => {
-    const updatedFoods = foods.map((food) => {
-      if (food.id === id) {
-        return {...food, title: newTitle}
-      }
-      return food
-    })
-    setFoods(updatedFoods)
-  }
-  const deleteFoodById = (id) => {
-    console.log("id geldi " + id);
-    const updatedFoods = foods.filter((food) => {
-        return food.id !== id;
-    });
-    setFoods(updatedFoods);
-  };
-  const createFood = (title) => {
-    //foods.push({ id: 123, title }) length değişkeni güncellenmiyor array referansından dolayı
-    const updatedFoods = [
-      ...foods,
-      { id: Math.round(Math.random() * 999), title },
-    ];
-    setFoods(updatedFoods);
-  };
+  const { fetchFoods } = useContext(FoodContext);
+  useEffect(() => {
+    fetchFoods();
+  }, []);
+  //BUNU YAPMA
+  //FETCHFOODS();
 
   return (
     <div className="app">
-      <FoodCreate onCreate={createFood} />
-      <FoodList foods={foods} onDelete={deleteFoodById} onEdit={editFoodById} />
+      <FoodCreate />
+      <FoodList />
     </div>
   );
 };

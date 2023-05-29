@@ -1,13 +1,15 @@
-import { useState } from "react";
+import FoodContext from "@/context/foods";
+import { useContext, useState } from "react";
 
-const FoodCreate = ({ onCreate }) => {
+const FoodCreate = () => {
+  const {createFood} = useContext(FoodContext);
   const [title, setTitle] = useState("");
   const handleChange = (event) => {
     setTitle(event.target.value);
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    onCreate(title);
+    createFood(title);
     setTitle("");
   };
   return (

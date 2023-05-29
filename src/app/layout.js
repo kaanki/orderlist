@@ -1,4 +1,7 @@
+'use client'
+import { Provider } from '@/context/foods'
 import './globals.css'
+
 
 export const metadata = {
   title: 'Create Next App',
@@ -7,8 +10,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <Provider>
+    <html lang="tr">
       <body>{children}</body>
     </html>
+    </Provider>
   )
 }
