@@ -6,12 +6,14 @@ import MultipleReturn from "@/hooks/MultipleReturn";
 import UserEffectBasic from "@/hooks/UseEffectBasic";
 import UseEffectCleanup from "@/hooks/UseEffectCleanup";
 import UseEffectFetchData from "@/hooks/UseEffectFetchData";
+import AddPicture from "@/projects/AddPicture";
+import Carousel from "@/projects/Carousel";
 import { Fragment } from "react";
 
 const HomePage = () => {
   return (
     <>
-      <MultipleReturn />
+      <AddPicture/>
     </>
   );
 };
